@@ -16,10 +16,10 @@ int main(int argc, char* argv [] ) {
 	int disciplinas[100];
 	int numInscricoes, num;
 
-	/*A ideia desse codigo eh armazenas todas as informacoes
-	 *Na lista e retirar todos numeros repetidos, como sei que havera
-	 *Sempre 5 materias que cada aluno seleciona em cada linha entao
-	 *Ao retirar o numero*/
+	/*A ideia desse codigo eh armazenas todas as informacoes em set para nao que eles estajam ordenados
+	 *Esses sets sao armazenados na lista, conforme coleto novos set verifico se ele 
+	 *ja se encontra na lista(operador == para compara-los). A variavel "discplinas" computa
+	 *Quantas vezes aquele set ja apareceu na lista */
 	scanf("%d", &numInscricoes);
 	do{
 		
@@ -35,6 +35,8 @@ int main(int argc, char* argv [] ) {
 			for(; position < (int)testando.size() && 
 					 sequencia != (*m1); position++, m1++);
 			if(position == (int)testando.size()){
+				/*Aqui estamos no final da lista, ou seja, se chegou nesse ponto eh pq nao existe nenhum 
+				  set(variavel sequencia) que seja igual a outro set na lista(variavel testando)*/
 				testando.push_back(sequencia);
 				disciplinas[position]++;
 			}else{
@@ -42,7 +44,7 @@ int main(int argc, char* argv [] ) {
 			}
 			sequencia.clear();
 		}
-		for(int j = 0; j < numInscricoes; j++){
+		for(int j = 0; j < numInscricoes; j++){/*Repasso o numero de vezes que as discplinas aparecem*/
 			numRepeticoes.push_back((int)disciplinas[j]);
 		}
 		numRepeticoes.sort();
@@ -51,6 +53,9 @@ int main(int argc, char* argv [] ) {
 		m2--;
 		m3 = m2;
 		num = 0;
+		
+		/*Computo a popularidade da discplinas que mais apareceram, 
+		 *somando o numero de vezes que as mais populares apareceram*/
 		do{
 			num = num + *(m3--);
 		}while( m3 != numRepeticoes.begin() && *m2 == *m3);

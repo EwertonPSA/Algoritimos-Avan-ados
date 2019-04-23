@@ -28,7 +28,7 @@ int validacao(int* paradas, int n, int deslocamento, int k){
 	//Retorna 0(aumenta o left) => Se nao ocorrer (i <= n) significa que a distancia de deslocamento pra andar 
 	//em 1 dia foi inferior a distancia entre acampamentos, isso nao pode ocorrer, ai
 	//Devo Aumentar o deslocamento(left = deslocamento+1). 
-	//Retorna 1(Reuz o right) => Se o numero de vezes que foi acampado eh menor ou igual a numero permitido e se o deslocamento
+	//Retorna 1(Reduz o right) => Se o numero de vezes que foi acampado eh menor ou igual a numero permitido e se o deslocamento
 	//Esta a cima das distancias entre os acampamentos
 	return (!(i <= n) && acampar <= k);
 }
